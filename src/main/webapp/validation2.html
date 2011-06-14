@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="script/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="script/jquery.validate-1.8.1.min.js"></script>
+<script type="text/javascript" src="script/jquery.validate.extend.elliot.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+$().ready(function() {
+	$("#validation1").validate({rules : {id1:{rocId:true}}});
+	$("#validation2").validate({
+		rules : {
+			account : {remote:'remote.html'}
+		},
+		messages : {
+			account : 'Incorrect Account'
+		}
+	});
+	$("#validation3").validate({
+		rules : {
+			account2 : {
+				remote: {
+					url : 'remote.html',
+					type : 'post',
+					data : {
+						password : function() {return $("#password").val();}
+					}
+				}
+			}
+		},
+		messages : {
+			account2 : 'Incorrect Account'
+		}
+	});
+});
+</script>
+<form id="validation1" action="validation1_result.html">
+<table>
+	<tr><th>Roc ID</th><td><input id="id1" name="id1" class="rocId" type="text" maxlength="10" size="10" /></td></tr>
+	<tr><td colspan="2"><input type="submit" value="Form1"/></td></tr>
+</table>
+</form>
+
+<form id="validation2" action="validation1_result.html">
+<table>
+	<tr><th>Account:</th><td><input id="account" name="account" type="text" maxlength="10" size="10" /></td></tr>
+	<tr><td colspan="2"><input type="submit" value="Form2"/></td></tr>
+</table>
+</form>
+
+<form id="validation3" action="validation1_result.html">
+<table>
+	<tr><th>Account:</th><td><input id="account2" name="account2" type="text" maxlength="10" size="10" /></td></tr>
+	<tr><th>Password:</th><td><input id="password" name="password" type="password" maxlength="10" size="10" /></td></tr>
+	<tr><td colspan="2"><input type="submit" value="Form3"/></td></tr>
+</table>
+</form>
+</body>
+</html>

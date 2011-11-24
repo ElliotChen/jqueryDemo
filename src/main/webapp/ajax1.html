@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Ajax Demo 1</title>
+<script type="text/javascript" src="script/jquery-1.7.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+	/**
+ 	*	readyState
+ 	UNSENT (numeric value 0)
+ 	The object has been constructed.
+
+ 	OPENED (numeric value 1)
+ 	The open() method has been successfully invoked. During this state request headers can be set using setRequestHeader() and the request can be made using the send() method.
+
+ 	HEADERS_RECEIVED (numeric value 2)
+ 	All redirects (if any) have been followed and all HTTP headers of the final response have been received. Several response members of the object are now available.
+
+ 	LOADING (numeric value 3)
+ 	The response entity body is being received.
+
+ 	DONE (numeric value 4)
+ 	The data transfer has been completed or something went wrong during the transfer (e.g. infinite redirects).
+ 	
+ 	*/
+	var xmlReq;
+	function createXMLHttpRequest() {
+		xmlReq = new XMLHttpRequest();
+	}
+	
+	function startAjax() {
+		createXMLHttpRequest();
+		xmlReq.onreadystatechange = handleResponse; //callback method
+		xmlReq.open("get", "./remote.html");
+		xmlReq.send(null);
+	}
+	
+	function handleResponse() {
+		alert(xmlReq.readyState + xmlReq.statusText+' | ' + xmlReq.status);
+		if (xmlReq.readyState == 4) {
+			alert("Response is "+xmlReq.responseText);
+		} 
+	}
+</script>
+
+<form name="myform" action="">
+	<input type="button" name="dfi" onclick="startAjax();" value="Demo Ajax">
+</form>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Head JQuery 01</title>
+<link href="css/style01.css" rel=stylesheet>
+<script type="text/javascript" src="script/jquery-1.7.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+	$().ready(
+		function() {
+			$(".pics").click(function() {alert("you click img:"+$(this).attr("src")); $(this).append("<br>!!!!!");});
+		}
+	);
+	
+	
+</script>
+
+<div id="header">
+	<h2>New Header</h2>
+</div>
+<div id="main">
+	<div class="pics"><img src="images/cover01.jpg"></div>
+	<div class="pics"><img src="images/cover02.jpg"></div>
+	<div class="pics"><img src="images/cover03.jpg"></div>
+</div>
+</body>
+</html>

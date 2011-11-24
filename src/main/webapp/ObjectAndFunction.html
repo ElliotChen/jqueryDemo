@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Object and Function</title>
+<script type="text/javascript" src="script/jquery-1.7.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+	/**
+	利用for in 來取得物件裡的屬性名稱
+	而obj[屬性名稱]則可取回屬性代表的值(pri type, function, array)
+	*/
+	function demoForIn() {
+		var myobj = new Object();
+		myobj.id="myid";
+		myobj.name="myname";
+		myobj.func = function() {
+			return this.name;
+		}
+		for (pname in myobj) {
+			alert(pname + ' = ' +myobj[pname]);
+		}
+		/*
+		will alert as following
+		id = myid;
+		name = myname;
+		func = function() { return this.name; }
+		*/
+	}
+	
+	/**
+	利用typeof來檢查是否等於'undefined',以確認是否有該屬性
+	而instanceof則可以確認型別
+	*/
+	function typeTest() {
+		var myobj = {name:'myname', arr:['a',10,'d']};
+		alert('check undeinfed by typeof => ' + (typeof(myobj.na) == 'undefined'));
+		for (pname in myobj) {
+			alert(myobj[pname] + 'is a array ? '+(myobj[pname] instanceof Array)+' and is a object?'+(myobj[pname] instanceof Object));
+		}
+	}
+
+</script>
+
+<form name="myform" action="">
+	<input type="button" name="dfi" onclick="demoForIn();" value="Demo For In">
+	<input type="button" name="tf" onclick="typeTest();" value="type test">
+</form>
+</body>
+</html>

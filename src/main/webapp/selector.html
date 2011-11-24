@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuerySelector</title>
+<script type="text/javascript" src="script/jquery-1.7.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+	function doElementSelect() {
+		alert("element selector: with nothing :"+$("form").attr("name"));
+	}
+	
+	function doClassSelect() {
+		alert("class selector: with . :"+$(".myclass").attr("name"));
+	}
+	
+	function doIdSelect() {
+		alert("id selector: with # :"+$("#idButton").attr("name"));
+	}
+	
+	function doLastSelect() {
+		alert("last selector: with :last :"+$("input:last").attr("name"));
+	}
+	
+	function doFirstSelect() {
+		alert("first selector: with :first :"+$("input:first").attr("name"));
+	}
+
+</script>
+
+<form name="myform" action="">
+	<input type="button" name="firstButton" onclick="doFirstSelect();" value="First Selector">
+	<input type="button" onclick="doElementSelect();" value="Element Selector">
+	<input type="button" name="classButton" class="myclass" onclick="doClassSelect();" value="Class Selector">
+	<input type="button" id="idButton" name="idButton" class="myclass" onclick="doIdSelect();" value="id Selector">
+	<input type="button" name="lastButton" onclick="doLastSelect();" value="Last Selector">
+</form>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="script/jquery-1.7.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		function newRow() {
+			$("#nt tbody").append('<tr><td><input name="id" type="text" maxlength="10" size="10" /></td><td><input name="name" type="text" maxlength="10" size="10" /></td><td><input type="button" value="Add" onclick="javascript:newRow();" /><input type="button" value="Remove" onclick="javascript:$(this).parent().parent().remove();" /></td></tr>');
+		}
+	</script>
+	<form id="validation1" action="validation1_result.html">
+		<table id="nt">
+			<thead>
+				<tr>
+					<th>ROC ID</th>
+					<th>Name</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input name="id" type="text" maxlength="10" size="10" />
+					</td>
+					<td><input name="name" type="text" maxlength="10" size="10" />
+					</td>
+					<td><input type="button" value="Add" onclick="javascript:newRow();" />
+					<input type="button" value="Remove" onclick="javascript:$(this).parent().parent().remove();" />
+					</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="2"><input type="submit" value="Send!" />
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</form>
+</body>
+</html>

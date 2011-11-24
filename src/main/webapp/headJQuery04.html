@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Head JQuery 01</title>
+
+<script type="text/javascript" src="script/jquery-1.7.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		$().ready();
+		
+		function det() {
+			$(".drink").eq(1).hide();
+		}
+		function att() {
+			$(".menu_listb li").show();
+		}
+		
+		function ck() {
+			$(":checked").each(function() {alert($(this).val())});
+		}
+	</script>
+
+	<div id="menu_wrapper">
+		<div class="left_col">
+			<h4>Dinner Entrees</h4>
+			<ul class="menu_entrees">
+				<li>Thai-style Halibut
+					<ul class="menu_list">
+						<li class="drink">coconut milk</li>
+						<li>pan-fried halibut</li>
+						<li>early autumn vegetables</li>
+						<li>Thai spices</li>
+					</ul>
+				</li>
+				<li>House Grilled Panini
+					<ul class="menu_list">
+						<li>prosciutto</li>
+						<li>provolone</li>
+						<li>avocado</li>
+						<li>sourdough roll</li>
+					</ul>
+				</li>
+				<li>Southwest Slider
+					<ul class="menu_list">
+						<li class="drink">whole chiles</li>
+						<li>hamburger</li>
+						<li>pepperjack cheese</li>
+						<li>multigrain roll</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<input type="button" onclick="det();" value="DET">
+	<input type="button" onclick="att();" value="ATT">
+	<form>
+		<input type="checkbox" name="list" value="A">
+		<input type="checkbox" name="list" value="B">
+		<input type="checkbox" name="list" value="C">
+		<input type="checkbox" name="list" value="D">
+		<input type="button" onclick="ck();" value="CK">
+	</form>
+</body>
+</html>

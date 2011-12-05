@@ -14,12 +14,13 @@ public class JsonUtilsTest {
 		Page<User> page = new Page<User>();
 		ArrayList<User> users = new ArrayList<User>();
 		
-		users.add(new User("1","A"));
-		users.add(new User("2","B"));
+		users.add(new User("1","A","0910"));
+		users.add(new User("2","B","0810"));
 		
 		page.setResults(users);
 		page.setPageSize(10);
 		page.setTotalCount(100);
+		
 		System.out.println(JsonUtils.toJson(page));
 	}
 

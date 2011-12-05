@@ -20,4 +20,12 @@
 		<servlet-name>DataTableServlet01</servlet-name>
 		<url-pattern>/DataTableServlet01</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>DataTableServlet02</servlet-name>
+		<servlet-class>tw.elliot.servlet.DataTableServlet02</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DataTableServlet02</servlet-name>
+		<url-pattern>/DataTableServlet02</url-pattern>
+	</servlet-mapping>
 </web-app>

@@ -16,10 +16,7 @@
 				"bServerSide":true,
 				"sAjaxSource": '/jquery/DataTableServlet02',
 				"fnServerParams": function ( aoData ) {
-					alert($("#myform").serializeArray());
-					$.merge(aoData, $("#myform").serializeArray());
-		            //aoData.push($("#myform").serializeArray());
-		        },
+					$.merge(aoData, $("#myform").serializeArray());},
 				"aoColumns": [
 				              { "mDataProp": "name" },
 				              { "mDataProp": "id" },

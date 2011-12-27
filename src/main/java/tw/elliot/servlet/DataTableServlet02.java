@@ -38,7 +38,7 @@ public class DataTableServlet02 extends HttpServlet {
 		page.setResults(users);
 		page.setPageSize(10);
 		page.setTotalCount(100);
-		response.getWriter().write(JsonUtils.toJson(page));
+		response.getWriter().write(JsonUtils.toJson(page, request.getParameter("sEcho")));
 	}
 
 	/**

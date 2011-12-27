@@ -21,7 +21,7 @@ public class JsonUtilsTest {
 		page.setPageSize(10);
 		page.setTotalCount(100);
 		
-		System.out.println(JsonUtils.toJson(page));
+		System.out.println(JsonUtils.toJson(page, "1"));
 	}
 
 }

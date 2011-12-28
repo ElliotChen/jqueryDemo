@@ -10,6 +10,7 @@
 <body>
 	<script type="text/javascript">
 		var disTable;
+		var gaiSelected = [];
 		$().ready(function() {
 			disTable = $("#sample").dataTable({
 				"sPaginationType":"full_numbers",
@@ -18,10 +19,18 @@
 				"sAjaxSource": '/jquery/DataTableServlet02',
 				"fnServerParams": function ( aoData ) {
 					$.merge(aoData, $("#myform").serializeArray());},
+				"fnRowCallback": function( nRow, aData, iDisplayIndex ) {
+						if ( $.inArray(aData[0], gaiSelected) != -1 )
+						{
+							$(nRow).addClass('row_selected');
+						}
+						return nRow;
+					},
 				"aoColumns": [
-							  { "mDataProp": "id" },
+							  { "mDataProp": "id", "bVisible":false },
 				              { "mDataProp": "name" },
-				              { "mDataProp": "phone" }
+				              { "mDataProp": "phone" },
+				              { "mDataProp": null, "sPaginationType": "checkbox" }
 				          ]
 			});
 		});
@@ -40,6 +49,7 @@
 				<th>ID</th>
 				<th>Name</th>
 				<th>Phone</th>
+				<th>Function</th>
 			</tr>
 		</thead>
 		<tbody>

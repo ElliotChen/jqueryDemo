@@ -2,7 +2,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>DataTable 01</title>
-<link href="css/demo_page.css" rel="stylesheet" />
 <link href="css/demo_table.css" rel="stylesheet" />
 <script type="text/javascript" src="script/jquery-1.7.js"></script>
 <script type="text/javascript" src="script/jquery.dataTables.js"></script>
@@ -14,36 +13,37 @@
 			$("#sample").dataTable(options);
 		});
 	</script>
-	<table id="sample">
+	<table id="sample" class="display">
 		<thead>
 			<tr>
-				<th>Name</th>
 				<th>ID</th>
+				<th>Name</th>
 				<th>Phone</th>
 			</tr>
 		</thead>
+		
 		<tbody>
 			<tr>
+				<td>A12345</td>
 				<td>Adam</td>
-				<td>A12345</td>
 				<td>09301234</td>
 			</tr>
 			<tr>
+				<td>B12345</td>
 				<td>Bob</td>
-				<td>A12345</td>
 				<td>09301234</td>
 			</tr>
 			<tr>
+				<td>C12345</td>
 				<td>Child</td>
-				<td>A12345</td>
 				<td>09301234</td>
 			</tr>
 		</tbody>
 		
 		<tfoot>
 			<tr>
-				<th>Name</th>
 				<th>ID</th>
+				<th>Name</th>
 				<th>Phone</th>
 			</tr>
 		</tfoot>

@@ -34,6 +34,7 @@ public class DataTableServlet02 extends HttpServlet {
 		
 		users.add(new User("1","A","0910"));
 		users.add(new User("2","B","0810"));
+		users.add(new User("3","C","0710"));
 		
 		page.setResults(users);
 		page.setPageSize(10);

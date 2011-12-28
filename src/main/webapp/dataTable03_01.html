@@ -10,7 +10,12 @@
 	<script type="text/javascript">
 		$().ready(function() {
 			$("#sample").dataTable({
-				"sAjaxSource": './mock/dataTable03.txt'
+				"sAjaxSource": './mock/dataTable03_01.txt',
+				"aoColumns": [
+				              { "mDataProp": "id" },
+				              { "mDataProp": "name" },
+				              { "mDataProp": "phone" }
+				          ]
 		});
 		});
 	</script>

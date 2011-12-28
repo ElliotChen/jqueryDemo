@@ -14,8 +14,9 @@ public class JsonUtilsTest {
 		Page<User> page = new Page<User>();
 		ArrayList<User> users = new ArrayList<User>();
 		
-		users.add(new User("1","A","0910"));
-		users.add(new User("2","B","0810"));
+		users.add(new User("A123","Adam","0910"));
+		users.add(new User("B123","Bob","0819"));
+		users.add(new User("C123","Child","0739"));
 		
 		page.setResults(users);
 		page.setPageSize(10);

@@ -10,18 +10,14 @@
 <body>
 	<script type="text/javascript">
 		$().ready(function() {
-			$("#exa").dataTable({
+			$("#sample").dataTable({
 				"sPaginationType":"full_numbers",
 				"bProcessing": true,
 				"bServerSide":true,
 				"sAjaxSource": '/jquery/DataTableServlet02',
-				"fnServerParams": function ( aoData ) {
-					alert(aoData);
-		            aoData.push( { "name": "more_data", "value": "my_value" } );
-		        },
 				"aoColumns": [
-				              { "mDataProp": "name" },
 				              { "mDataProp": "id" },
+				              { "mDataProp": "name" },
 				              { "mDataProp": "phone" }
 				          ]
 		});
@@ -33,11 +29,11 @@
 		<input type="text" name="phone" />
 		<input type="button" value="Search" />
 	</form>
-	<table id="exa">
+	<table id="sample" class="display">
 		<thead>
 			<tr>
-				<th>Name</th>
 				<th>ID</th>
+				<th>Name</th>
 				<th>Phone</th>
 			</tr>
 		</thead>

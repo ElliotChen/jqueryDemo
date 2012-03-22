@@ -3,8 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="script/jquery-1.6.1.min.js"></script>
-<script type="text/javascript" src="script/jquery.validate-1.8.1.min.js"></script>
+<script type="text/javascript" src="script/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="script/jquery.validate-1.9.0.js"></script>
 </head>
 <body>
 <script type="text/javascript">
@@ -12,7 +12,7 @@ $().ready(function() {
 	//Validate fields by class
 	$("#validation1").validate();
 
-	//Validate fields by setting.
+	//Validate fields by setting options.
 	var valSetting = {
 		rules : {
 			id2: {required:true}

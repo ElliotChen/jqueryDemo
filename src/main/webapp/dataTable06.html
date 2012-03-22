@@ -4,7 +4,7 @@
 <title>DataTable 05 -- DataSource -- Server Side with Form Param</title>
 
 <link href="css/demo_table.css" rel="stylesheet" />
-<script type="text/javascript" src="script/jquery-1.7.js"></script>
+<script type="text/javascript" src="script/jquery-1.7.2.js"></script>
 <script type="text/javascript" src="script/jquery.dataTables.js"></script>
 </head>
 <body>
@@ -27,10 +27,11 @@
 						return nRow;
 					},
 				"aoColumns": [
-							  { "mDataProp": "id", "bVisible":false },
+							  { "mDataProp": null, "fnRender": function(oObj){ return "<input type='checkbox' name='id' value='"+oObj.aData.id+"'>"}, "sWidth":"5%", "bSortable":false },
+							  { "mDataProp": "id" },
 				              { "mDataProp": "name" },
 				              { "mDataProp": "phone" },
-				              { "mDataProp": null, "sPaginationType": "checkbox" }
+				              { "mDataProp": null, "fnRender": function(oObj){ return "<input type='button' value='Edit'>"}, "sWidth":"5%", "bSortable":false }
 				          ]
 			});
 		});
@@ -46,6 +47,7 @@
 	<table id="sample" class="display">
 		<thead>
 			<tr>
+				<th>Select</th>
 				<th>ID</th>
 				<th>Name</th>
 				<th>Phone</th>

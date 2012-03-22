@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <link href="css/demo_page.css" rel="stylesheet" />
 <link href="css/demo_table.css" rel="stylesheet" />
-<script type="text/javascript" src="script/jquery-1.7.js"></script>
+<script type="text/javascript" src="script/jquery-1.7.2.js"></script>
 <script type="text/javascript" src="script/jquery.dataTables.js"></script>
 </head>
 <body>

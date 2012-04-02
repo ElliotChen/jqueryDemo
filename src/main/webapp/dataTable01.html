@@ -5,12 +5,13 @@
 <link href="css/demo_table.css" rel="stylesheet" />
 <script type="text/javascript" src="script/jquery-1.7.2.js"></script>
 <script type="text/javascript" src="script/jquery.dataTables.js"></script>
+<script type="text/javascript" src="script/jquery.dataTables.columnFilter.js"></script>
 </head>
 <body>
 	<script type="text/javascript">
 		$().ready(function() {
 			options = {"sPaginationType":"full_numbers"};
-			$("#sample").dataTable(options);
+			$("#sample").dataTable(options).columnFilter();
 		});
 	</script>
 	<table id="sample" class="display">

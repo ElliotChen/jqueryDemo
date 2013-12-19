@@ -1,0 +1,105 @@
+<html>
+	<head>
+		<title>FAQ</title>
+		<script type="text/javascript" src="script/jquery-1.10.2.js"></script>
+	</head>
+	<body>
+		<ul>
+			<li>
+				Q.如何取得select選取的值？<br>
+				A.
+				在change時
+				<pre>
+				$("#selectId").change(function() {
+					alert($(this).val());
+				});
+				</pre>
+				其他function
+				<pre>
+				$("#selectId").val();
+				</pre>
+				<p>
+				<select id="select01">
+					<option value="1">1
+					<option value="2">2
+				</select>
+				<button id="select01Btn">Select Value</button>
+				</p>
+			</li>
+			<li>
+				Q.如何取得radio選取的值？<br>
+				A.
+				$("input[name='radio01']:checked").val();
+				
+				<input type="radio" name="radio01" value="RA">RA
+				<input type="radio" name="radio01" value="RB">RB
+				<input type="radio" name="radio01" value="RC">RC
+				<button id="radio01Btn">Radio Value</button>
+			</li>
+			<li>
+				Q.element有關disabled或hidden的操作
+				A.
+				確認enabled或是disabled
+				$("#elementId").is(":enabled")<br>
+				$("#elementId").is(":disabled")<br>
+				或
+				$("#optBtn").prop("disabled") //property 中沒有enabled這個attribute喔。
+				
+				操作element的enable及disable
+				$("#hidBtn").show();
+				$("#hidBtn").hide();
+				直接切換的話可以使用toggle
+				$("#hidBtn").toggle();
+				
+				
+				<button id="optBtn">OP Button</button>
+				<button id="hidBtn">HID Button</button>
+				
+				<button id="enBtn">Enable</button>
+				<button id="disBtn">Disable</button>
+				<button id="showBtn">Show</button>
+				<button id="hiddenBtn">Hidden</button>
+				<button id="toggleBtn">Switch</button>
+			</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+	$(function () {
+		$("#select01").change(function() {
+			alert($(this).val());
+		});
+		$("#select01Btn").click(function() {
+			alert($("#select01").val());
+		});
+		$("#radio01Btn").click(function() {
+			alert($("input[name='radio01']:checked").val());
+		});
+		
+		$("#enBtn").click(function() {
+			//alert("Button is enabled? "+$("#optBtn").is(":enabled"));
+			alert($("#optBtn").prop("disabled"));
+			$("#optBtn").prop("disabled",false);
+		});
+		
+		$("#disBtn").click(function() {
+			alert("Button is disabled? "+$("#optBtn").is(":disabled"));
+			$("#optBtn").prop("disabled",true);
+		});
+		
+		$("#showBtn").click(function() {
+			alert("Button is display? "+$("#hidBtn"));
+			$("#hidBtn").show();
+		});
+		
+		$("#hiddenBtn").click(function() {
+			alert("Button is display? "+$("#hidBtn"));
+			$("#hidBtn").hide();
+		});
+		
+		$("#toggleBtn").click(function() {
+			alert("Button is display? "+$("#hidBtn"));
+			$("#hidBtn").toggle();
+		});
+	});
+	</script>
+</html>

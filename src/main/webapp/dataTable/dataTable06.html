@@ -1,12 +1,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>DataTable 07 -- DataSource -- Server Side with Form Param</title>
+<title>DataTable 06 -- DataSource -- Server Side with Form Param</title>
 
-<link href="css/demo_table.css" rel="stylesheet" />
-<script type="text/javascript" src="script/jquery-1.7.2.js"></script>
-<script type="text/javascript" src="script/jquery.dataTables.js"></script>
-<script type="text/javascript" src="script/jquery.dataTables.columnFilter.js"></script>
+<link href="../css/demo_table.css" rel="stylesheet" />
+<script type="text/javascript" src="../script/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="../script/jquery.dataTables-1.9.0.js"></script>
 </head>
 <body>
 	<script type="text/javascript">
@@ -29,21 +28,12 @@
 					},
 				"aoColumns": [
 							  { "mDataProp": null, "fnRender": function(oObj){ return "<input type='checkbox' name='id' value='"+oObj.aData.id+"'>"}, "sWidth":"5%", "bSortable":false },
-							  { "mDataProp": "id", "bSortable":false},
-				              { "mDataProp": "name", "bSortable":false },
-				              { "mDataProp": "phone", "bSortable":false },
+							  { "mDataProp": "id" },
+				              { "mDataProp": "name" },
+				              { "mDataProp": "phone" },
 				              { "mDataProp": null, "fnRender": function(oObj){ return "<input type='button' value='Edit'>"}, "sWidth":"5%", "bSortable":false }
 				          ]
-			}).columnFilter({
-						aoColumns: [ 
-						             null,
-						             { type: "text" },
-						             { type: "text"} ,
-						             { type: "text" },
-						             null
-						            ]
-							});
-			
+			});
 		});
 	</script>
 	<form id="myform">
@@ -66,15 +56,6 @@
 		</thead>
 		<tbody>
 		</tbody>
-		<tfoot>
-			<tr>
-				<th>Select</th>
-				<th>ID</th>
-				<th>Name</th>
-				<th>Phone</th>
-				<th>Function</th>
-			</tr>
-		</tfoot>
 	</table>
 </body>
 </html>

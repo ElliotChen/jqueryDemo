@@ -1,11 +1,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>DataTable 06 -- DataSource -- Server Side with Form Param</title>
+<title>DataTable 08 -- Upgrade to datatables 1.9.4</title>
 
-<link href="css/demo_table.css" rel="stylesheet" />
-<script type="text/javascript" src="script/jquery-1.7.2.js"></script>
-<script type="text/javascript" src="script/jquery.dataTables.js"></script>
+<link href="../css/demo_table.css" rel="stylesheet" />
+<script type="text/javascript" src="../script/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="../script/jquery.dataTables-1.9.4.js"></script>
 </head>
 <body>
 	<script type="text/javascript">
@@ -27,15 +27,22 @@
 						return nRow;
 					},
 				"aoColumns": [
-							  { "mDataProp": null, "fnRender": function(oObj){ return "<input type='checkbox' name='id' value='"+oObj.aData.id+"'>"}, "sWidth":"5%", "bSortable":false },
-							  { "mDataProp": "id" },
-				              { "mDataProp": "name" },
-				              { "mDataProp": "phone" },
-				              { "mDataProp": null, "fnRender": function(oObj){ return "<input type='button' value='Edit'>"}, "sWidth":"5%", "bSortable":false }
+							  { "mData": null, "mRender": function(data, type, full){ return "<input type='checkbox' name='id' value='"+data+"'>"}, "sWidth":"5%", "bSortable":false },
+							  { "mData": "id", "bSortable":false},
+				              { "mData": "name", "bSortable":false },
+				              { "mData": "phone", "bSortable":false },
+				              { "mData": null, "mRender": function(data, type, full){ return "<input type='button' value='Edit'>"}, "sWidth":"5%", "bSortable":false }
 				          ]
 			});
+			
 		});
 	</script>
+	<ul>jquery data table 1.9.0 ~ 1.9.4的的改變
+		<li>mDataProp改為mData</li>
+		<li>fnRender(aData)改為mRender(data, type, full)
+			其中傳入的data是在mData中指定的欄位資料
+		</li>
+	</ul>
 	<form id="myform">
 	<table>
 		<tr><td>NAME:</td><td><input type="text" name="name" /></td></tr>
@@ -56,6 +63,15 @@
 		</thead>
 		<tbody>
 		</tbody>
+		<tfoot>
+			<tr>
+				<th>Select</th>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Phone</th>
+				<th>Function</th>
+			</tr>
+		</tfoot>
 	</table>
 </body>
 </html>

@@ -1,0 +1,86 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>DataTable 07 -- DataSource -- Server Side with Form Param</title>
+
+<link href="../css/demo_table.css" rel="stylesheet" />
+<script type="text/javascript" src="../script/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="../script/jquery.dataTables-1.9.4.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		var disTable;
+		var gaiSelected = [];
+		$().ready(function() {
+			disTable = $("#sample").dataTable({
+				"sPaginationType":"full_numbers",
+				"bProcessing": true,
+				"bServerSide":true,
+				"sAjaxSource": '/jquery/DataTableServlet02',
+				"fnServerParams": function ( aoData ) {
+					$.merge(aoData, $("#myform").serializeArray());},
+				"fnRowCallback": function( nRow, aData, iDisplayIndex ) {
+						if ( $.inArray(aData[0], gaiSelected) != -1 )
+						{
+							$(nRow).addClass('row_selected');
+						}
+						return nRow;
+					},
+				"aoColumns": [
+							  { "mData": null, "mRender": function(data, type, full){ return "<input type='checkbox' name='id' value='"+data+"'>"}, "sWidth":"5%", "bSortable":false },
+							  { "mData": "id", "bSortable":false},
+				              { "mData": "name", "bSortable":false },
+				              { "mData": "phone", "bSortable":false },
+				              { "mData": "birthday", "sType":"date", "bSortable":false, "mRender":function(data,type,full) {return new Date(data);} },
+				              { "mData": null, "mRender": function(data, type, full){ return "<input type='button' value='Edit'>"}, "sWidth":"5%", "bSortable":false }
+				          ]
+			});
+			
+		});
+		
+		function convertDate(sDate) {
+			
+		}
+	</script>
+	<ul>日期處理
+		<li>java.util.Date在回傳時若傳為像1382604205442這樣的數字，請以new Date(data)的方式來處理<br>
+			加入"mRender":function(data,type,full) {return new Date(data);}<br>
+			這類的function可以協助顯示Date的資料，當然可以另寫一個javascript function來做這件事。
+		</li>
+		<li>利用java json library的功能，像jackson有提供JsonSerializer這樣Annotation的轉換註冊機制，在server端往前傳遞資料前就已轉換為合適的格式了。
+		</li>
+	</ul>
+	<form id="myform">
+	<table>
+		<tr><td>NAME:</td><td><input type="text" name="name" /></td></tr>
+		<tr><td>ID:</td><td><input type="text" name="id" /></td></tr>
+		<tr><td>PHONE:</td><td><input type="text" name="phone" /></td></tr>
+		<tr><td colspan="2"><input id="btnSearch" type="button" value="Search" onclick="disTable.fnDraw();"/></td></tr>
+	</table>
+	</form>
+	<table id="sample" class="display">
+		<thead>
+			<tr>
+				<th>Select</th>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Phone</th>
+				<th>Birthday</th>
+				<th>Function</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+		<tfoot>
+			<tr>
+				<th>Select</th>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Phone</th>
+				<th>Birthday</th>
+				<th>Function</th>
+			</tr>
+		</tfoot>
+	</table>
+</body>
+</html>
